@@ -16,6 +16,10 @@ module.exports = {
             [
                 'Melon et Melèche prennent une maison. Melon l’achète …',
                 'Et Melèche l’habite'
+            ],
+            [
+                'Qu\'est ce qui est petit et qui tire des flèches ?',
+                'Un nain dien'
             ]
         ]
         
