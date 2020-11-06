@@ -20,6 +20,14 @@ module.exports = {
             [
                 'Qu\'est ce qui est petit et qui tire des flèches ?',
                 'Un nain dien'
+            ],
+            [
+                'Qu\'est ce qu\'un buisson au bord de la route ?',
+                'Une portugaise qui fait du stop'
+            ],
+            [
+                'Qu\'est ce qu\'une bonne blague de léo ?',
+                'Un mythe'
             ]
         ]
         
