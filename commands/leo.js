@@ -2,7 +2,7 @@ const Discord = require('discord.js');
 
 module.exports = {
     name: 'leo',
-    description: 'fonction message simple',
+    description: 'Blagues de léo',
     async execute(message) {
         const citationsLeo = [
             [
@@ -32,7 +32,6 @@ module.exports = {
         ]
         
         const messageId = Math.floor(Math.random() * Math.floor(citationsLeo.length))
-        // message.reply();
 
         const embed1 = new Discord.MessageEmbed()
             .setTitle('Blague de Léo 🤡')
@@ -47,12 +46,8 @@ module.exports = {
             .setColor('#FF2D00')
             .setFooter('(Vous avez le droit d\'insulter Léo)')
 
-        // message.channel.send(embed1)
-        // message.react('🎤')
-
         let msg = await message.channel.send(embed1);
         await msg.react("🎤")
-
         msg.awaitReactions(
             (reaction, user) => user.id == message.author.id && (reaction.emoji.name == '🎤'),
                 { max: 1, time: 30000 })
@@ -60,7 +55,6 @@ module.exports = {
                     collected =>
                     {   
                         if (collected.first().emoji.name == '🎤') {
-                            // message.channel.send(`${citationsLeo[messageId][1]}`).then((message) => message.react('🤡'))
                             message.channel.send(embed2)
                         }
                     }
