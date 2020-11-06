@@ -4,3 +4,10 @@
 
 This is my first Discord bot    
 Coded in node JS it uses discordJS
+
+## Before starting
+
+Create a config.json at root containing your bot token``{
+    "prefix" : "##",
+    "token": "TOKEN"
+}``js
