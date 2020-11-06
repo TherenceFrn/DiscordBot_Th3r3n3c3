@@ -8,9 +8,18 @@ Coded in node JS it uses discordJS
 ## Before starting
 
 Create a config.json at root containing your bot token    
-``    
+```js
 {    
-    "prefix" : "##",    
-    "token": "TOKEN"    
+"prefix" : "##",    
+"token": "TOKEN"    
 }    
-``
+```
+
+## How to run the bot
+
+Run command terminal
+
+```sh
+$ node
+$ node .
+```
