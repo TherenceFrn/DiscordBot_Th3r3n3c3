@@ -40,6 +40,12 @@ module.exports = {
             .setColor('#FF2D00')
             .setFooter('(Appuyez sur le micro pour obtenir l\'autre partie de la blague)')
             .setImage('https://i.imgur.com/03bzBgF.png')
+        
+        const embed2 = new Discord.MessageEmbed()
+            .setTitle('Réponse de la blague 🥳')
+            .setDescription(`${citationsLeo[messageId][1]} \n 🤡`)
+            .setColor('#FF2D00')
+            .setFooter('(Vous avez le droit d\'insulter Léo)')
 
         message.channel.send(embed1)
         message.react('🎤')
@@ -51,7 +57,8 @@ module.exports = {
                     collected =>
                     {   
                         if (collected.first().emoji.name == '🎤') {
-                            message.channel.send(`${citationsLeo[messageId][1]}`).then((message) => message.react('🤡'))
+                            // message.channel.send(`${citationsLeo[messageId][1]}`).then((message) => message.react('🤡'))
+                            message.channel.send(embed2)
                         }
                     }
                 )
