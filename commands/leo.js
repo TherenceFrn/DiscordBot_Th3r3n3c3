@@ -3,7 +3,7 @@ const Discord = require('discord.js');
 module.exports = {
     name: 'leo',
     description: 'fonction message simple',
-    execute(message) {
+    async execute(message) {
         const citationsLeo = [
             [
                 'Qu’est-ce qui n’est pas un steak ?',
@@ -47,10 +47,13 @@ module.exports = {
             .setColor('#FF2D00')
             .setFooter('(Vous avez le droit d\'insulter Léo)')
 
-        message.channel.send(embed1)
-        message.react('🎤')
+        // message.channel.send(embed1)
+        // message.react('🎤')
 
-        message.awaitReactions(
+        let msg = await message.channel.send(embed1);
+        await msg.react("🎤")
+
+        msg.awaitReactions(
             (reaction, user) => user.id == message.author.id && (reaction.emoji.name == '🎤'),
                 { max: 1, time: 30000 })
                 .then(
