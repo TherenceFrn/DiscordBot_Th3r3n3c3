@@ -13,23 +13,14 @@ module.exports = {
             .setFooter('(Appuyez sur la croix pour supprimer le message)')
 
 
-        let msg = await message.channel.send(embed1);
-        await msg.react("❌")
+        let msg = await message.channel.send(embed1).react("❌")
 
-        msg.awaitReactions(
-                (reaction, user) => user.id == message.author.id && (reaction.emoji.name == '❌'), {
+        msg.awaitReactions((reaction, user) => user.id == message.author.id && (reaction.emoji.name == '❌'), {
                     max: 1,
                     time: 30000
                 })
             .then(
-                msg.delete({
-                    timeout: 1000
-                })
-                .then(
-                    message.delete({
-                        timeout: 1000
-                    })
-                )
+                message.channel.bulkDelete(2)
             )
     }
 }

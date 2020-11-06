@@ -4,60 +4,39 @@ module.exports = {
     name: 'leo',
     description: 'Blagues de léo',
     async execute(message) {
-        const citationsLeo = [
-            [
-                'Qu’est-ce qui n’est pas un steak ?',
-                'Une pastèque'
-            ],
-            [
-                'Quel plat sent le cul de vache ?',
-                'La langue de boeuf'
-            ],
-            [
-                'Melon et Melèche prennent une maison. Melon l’achète …',
-                'Et Melèche l’habite'
-            ],
-            [
-                'Qu\'est ce qui est petit et qui tire des flèches ?',
-                'Un nain dien'
-            ],
-            [
-                'Qu\'est ce qu\'un buisson au bord de la route ?',
-                'Une portugaise qui fait du stop'
-            ],
-            [
-                'Qu\'est ce qu\'une bonne blague de léo ?',
-                'Un mythe'
-            ]
-        ]
-        
-        const messageId = Math.floor(Math.random() * Math.floor(citationsLeo.length))
-
-        const embed1 = new Discord.MessageEmbed()
-            .setTitle('Blague de Léo 🤡')
-            .setDescription(`${citationsLeo[messageId][0]}`)
-            .setColor('#FF2D00')
-            .setFooter('(Appuyez sur le micro pour obtenir l\'autre partie de la blague)')
-            .setImage('https://i.imgur.com/03bzBgF.png')
-        
-        const embed2 = new Discord.MessageEmbed()
-            .setTitle('Réponse de la blague 🥳')
-            .setDescription(`${citationsLeo[messageId][1]} \n 🤡`)
-            .setColor('#FF2D00')
-            .setFooter('(Vous avez le droit d\'insulter Léo)')
-
-        let msg = await message.channel.send(embed1);
-        await msg.react("🎤")
-        msg.awaitReactions(
-            (reaction, user) => user.id == message.author.id && (reaction.emoji.name == '🎤'),
-                { max: 1, time: 30000 })
-                .then(
-                    collected =>
-                    {   
-                        if (collected.first().emoji.name == '🎤') {
-                            message.channel.send(embed2)
+        const axios = require('axios')
+        axios.get('https://www.blagues-api.fr/api/random', {
+                    headers: {
+                                'Authorization': `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiMTc3NTI0MTkzNTEwOTQ4ODY0IiwibGltaXQiOjEwMCwia2V5IjoiRnJuNlJ0UmlFalZUOUpzQTFaVVdUUHBJeHNtSHZXUTdsQjhKZFNxSHJQTHFJaHZZT2UiLCJjcmVhdGVkX2F0IjoiMjAyMC0xMS0wNlQyMjowNzoxOCswMTowMCIsImlhdCI6MTYwNDY5NjgzOH0.Nezk3nrz0OpD5kVbo_6eciW4mX8IQFU6P9gE2kkgM9w`
+                            }
+                        })
+            .then(async (data) => {
+                console.log(data.data)
+                const blagues = data.data;
+                const embed1 = new Discord.MessageEmbed()
+                    .setTitle('Blague très drole niveau Léo 🤡')
+                    .setDescription(`${blagues.joke}`)
+                    .setColor('#FF2D00')
+                    .setFooter('(Appuyez sur le micro pour obtenir l\'autre partie de la blague)')
+                    .setImage('https://i.imgur.com/03bzBgF.png')
+                const embed2 = new Discord.MessageEmbed()
+                    .setTitle('Réponse de la blague 🥳')
+                    .setDescription(`${blagues.answer} \n 🤡`)
+                    .setColor('#FF2D00')
+                let msg = await message.channel.send(embed1)
+                await msg.react("🎤");
+                msg.awaitReactions(
+                        (reaction, user) => user.id == message.author.id && (reaction.emoji.name == '🎤'), {
+                            max: 1,
+                            time: 30000
+                        })
+                    .then(
+                        collected => {
+                            if (collected.first().emoji.name == '🎤') {
+                                message.channel.send(embed2)
+                            }
                         }
-                    }
-                )
+                    )
+            })
     }
 }
