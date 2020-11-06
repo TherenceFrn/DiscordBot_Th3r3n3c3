@@ -17,6 +17,9 @@ for (const file of commandFiles) {
 
 client.once('ready', () => {
     console.log('Ready tsé');
+    client.user.setActivity('baiser zoé', {
+        type: 'PLAYING'
+    })
 });
 
 client.on('message', message => {
