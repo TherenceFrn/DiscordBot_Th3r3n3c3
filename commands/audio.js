@@ -9,7 +9,6 @@ module.exports = {
         const audioList = [
             'arabe',
             'arabes',
-            'arabes',
             'cirque',
             'doigby',
             'donut',
