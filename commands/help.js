@@ -39,8 +39,5 @@ module.exports = {
         //         }
         //     )
 
-        const user = message.author
-        const activity = user.presence.activities.find(activity => activity.type === 'LISTENING') || null
-        console.log(activity)
     }
 }
