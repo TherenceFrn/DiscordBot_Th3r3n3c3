@@ -16,6 +16,7 @@ module.exports = {
                 `#server\n` +
                 `#femme\n` +
                 `#thanos\n` +
+                `#random [0-9]+-[0-9]+\n` +
                 `#avatar [empty || @tag]`)
             .setColor('#98FB98')
             .setFooter('(Appuyez sur la croix pour supprimer le message)')
