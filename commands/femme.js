@@ -1,11 +1,11 @@
 const Discord = require('discord.js');
 
 module.exports = {
-    name: 'soeur',
+    name: 'femme',
     description: 'Help',
     async execute(message) {
 
-        let liste = [
+        const liste = [
             'Zoé',
             'Camille',
             'Léa',
@@ -20,12 +20,20 @@ module.exports = {
             .setDescription(
                 `${liste[numSoeur]} est légale, c'est les droits de l'homme qui le disent`)
             .setFooter(`Protégez là de Lucas bonnet`)
-            .setColor('#FF2D00')
+            .setColor('#ff7dee')
 
         let msg = await message.channel.send(embed)
-        await msg.react("✊");
-        await msg.react("");
-        await msg.react("✊");
+        await msg.react("🥵").then(() => {
+            msg.react("🍆").then(() => {
+                msg.react("👉").then(() => {
+                    msg.react("👌").then(() => {
+                        msg.react("🍑").then(() => {
+                            msg.react("💧")
+                        })
+                    })
+                })
+            })
+        });
 
         let msg1 = await message.channel.send('Je rajoute que, Leaticia est une vraie salope')
         await msg1.react('🥵').then(() =>

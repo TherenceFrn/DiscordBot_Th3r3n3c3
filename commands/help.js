@@ -9,12 +9,14 @@ module.exports = {
         const embed = new Discord.MessageEmbed()
             .setTitle('Liste des commandes :')
             .setDescription(
-                `##help\n`+
-                `##audio [nom d'audio] (##audio help pour plus de détails)\n`+
-                `##play [lien youtube]\n`+
-                `##prune [0-99]\n`+
-                `##server\n`+
-                `##avatar [empty || @tag]`)
+                `#help\n`+
+                `#audio [nom d'audio] (##audio help pour plus de détails)\n`+
+                `#play [lien youtube]\n`+
+                `#prune [0-99]\n`+
+                `#server\n` +
+                `#femme\n` +
+                `#thanos\n` +
+                `#avatar [empty || @tag]`)
             .setColor('#FF2D00')
             .setFooter('(Appuyez sur la croix pour supprimer le message)')
 
