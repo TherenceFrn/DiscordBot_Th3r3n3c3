@@ -16,7 +16,7 @@ module.exports = {
 
         const embed1 = new Discord.MessageEmbed()
             .setTitle(`C'est finis !`)
-            .setDescription(`Quelqu'un à décidé de tuer la moitié de la population en demandant l'aide de Thanos`)
+            .setDescription(`${message.author.username} à décidé de tuer la moitié de la population en demandant l'aide de Thanos`)
             .setImage('https://media1.tenor.com/images/f039ad91755b2644424967f8f823a91c/tenor.gif?itemid=15240312')
             .setColor('#FF2D00')
 
@@ -25,7 +25,7 @@ module.exports = {
 
         if (message.member.voice.channel) {
             const connection = await message.member.voice.channel.join();
-            const dispatcher = connection.play(`./media/thanos.mp3`, {
+            const dispatcher = connection.play(`./media/thanos.wav`, {
                 volume: 1,
             });
             dispatcher.on('start', () => {

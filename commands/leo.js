@@ -11,7 +11,6 @@ module.exports = {
                             }
                         })
             .then(async (data) => {
-                console.log(data.data)
                 const blagues = data.data;
                 const embed1 = new Discord.MessageEmbed()
                     .setTitle('Blague très drole niveau Léo 🤡')

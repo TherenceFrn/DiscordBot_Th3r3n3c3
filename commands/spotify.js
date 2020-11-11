@@ -7,7 +7,7 @@ module.exports = {
 
         let user = message.mentions.users.first() || message.author;
 
-        console.log(user)
+        // console.log(user)
 
         if (user.presence.game !== null && user.presence.game.type === 'LISTENING' && user.presence.game.name === 'Spotify' && user.presence.game.assets !== null) {
             let trackImg = `https://i.scdn.co/image/${user.presence.game.assets.largeImage.slice(8)}`;

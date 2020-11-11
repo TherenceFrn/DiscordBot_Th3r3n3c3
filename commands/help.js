@@ -17,24 +17,29 @@ module.exports = {
                 `#femme\n` +
                 `#thanos\n` +
                 `#avatar [empty || @tag]`)
-            .setColor('#FF2D00')
+            .setColor('#98FB98')
             .setFooter('(Appuyez sur la croix pour supprimer le message)')
 
         let msg = await message.channel.send(embed)
-        await msg.react("❌")
+        // await msg.react("❌")
+        await msg.react("👌")
 
-        msg.awaitReactions((reaction, user) => user.id == message.author.id && (reaction.emoji.name == '❌'), {
-                    max: 1,
-                    time: 30000
-                })
-            .then(
-                collected => {
-                    if (collected.first().emoji.name == '❌') {
-                        // console.log('suppression !')
-                        message.channel.bulkDelete(2)
-                        console.log(reaction)
-                    }
-                }
-            )
+        // msg.awaitReactions((user) => user.id == message.author.id && (reaction.emoji.name == '❌'), {
+        //             max: 1,
+        //             time: 30000
+        //         })
+        //     .then(
+        //         collected => {
+        //             if (collected.first().emoji.name == '❌') {
+        //                 const amount = 2
+        //                 message.channel.bulkDelete(amount)
+        //                 console.log(reaction)
+        //             }
+        //         }
+        //     )
+
+        const user = message.author
+        const activity = user.presence.activities.find(activity => activity.type === 'LISTENING') || null
+        console.log(activity)
     }
 }

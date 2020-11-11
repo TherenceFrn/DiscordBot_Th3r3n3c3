@@ -51,7 +51,6 @@ module.exports = {
                 .then(
                     collected => {
                         if (collected.first().emoji.name == '❌') {
-                            // console.log('suppression !')
                             message.channel.bulkDelete(2)
                         }
                     }
