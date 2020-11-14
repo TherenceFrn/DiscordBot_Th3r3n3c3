@@ -19,6 +19,12 @@ module.exports = {
             format: 'jpg'
         }))
         ctx.drawImage(avatar, 375, 150, 200, 200)
+
+        ctx.font = "45px Comic Sans MS"
+        ctx.fontWeight = "bold"
+        ctx.fillStyle = "#fff"
+        const userName = args != '' ? message.mentions.users.first().username : message.author.username;
+        ctx.fillText(`Bienvenue dans la famille ${userName} 🥳`, 25, 475)
         
         const attachment = new Discord.MessageAttachment(canvas.toBuffer(), 'example.png');
 
