@@ -29,7 +29,7 @@ client.on('message', message => {
     const command = args.shift().toLowerCase();
 
     if (!client.commands.has(command)) {
-        return message.reply('Commande non reconnue ! \n Utilisez ##help pour voir la liste des commandes')
+        return message.reply('Commande non reconnue ! \n Utilisez #help pour voir la liste des commandes')
     }
 
     try {
