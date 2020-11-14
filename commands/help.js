@@ -16,8 +16,13 @@ module.exports = {
                 `#server\n` +
                 `#femme\n` +
                 `#thanos\n` +
+                `#zawarudo\n` +
+                `#avatar [empty OR @tag]` +
                 `#random [0-9]+-[0-9]+\n` +
-                `#avatar [empty || @tag]`)
+                `#robot\n` +
+                `#soeur [empty OR @tag]\n` +
+                `#sigogne [empty OR @tag]\n`
+                )
             .setColor('#98FB98')
             .setFooter('(Appuyez sur la croix pour supprimer le message)')
 
