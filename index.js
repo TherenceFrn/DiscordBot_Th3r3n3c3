@@ -1,13 +1,9 @@
 const fs = require('fs');
-
 const Discord = require('discord.js');
-
 const { prefix, token} = require('./config.json');
-
 const client = new Discord.Client();
 
 client.commands = new Discord.Collection();
-
 const commandFiles = fs.readdirSync('./commands').filter(file =>  file.endsWith('.js'));
 
 for (const file of commandFiles) {
@@ -24,14 +20,11 @@ client.once('ready', () => {
 
 client.on('message', message => {
     if (!message.content.startsWith(prefix) || message.author.bot) return;
-
     const args = message.content.slice(prefix.length).split(/ +/);
     const command = args.shift().toLowerCase();
-
     if (!client.commands.has(command)) {
         return message.reply('Commande non reconnue ! \n Utilisez #help pour voir la liste des commandes')
     }
-
     try {
         client.commands.get(command).execute(message, args)
     } catch (error) {
